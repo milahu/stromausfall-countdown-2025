@@ -73,6 +73,11 @@ def main():
 
     print(f"date_str {date_str}")
 
+    if "--date-as-message" in sys.argv[1:]:
+        sys.argv.remove("--date-as-message")
+        message = "update " + full_date.strftime("%Y-%m-%d")
+        sys.argv.append("--message=" + message)
+
     args = [
         "git",
         "commit",
